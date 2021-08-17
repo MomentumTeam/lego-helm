@@ -1,0 +1,62 @@
+
+apiVersion: v2
+name: kartoffel-helm
+description: A Helm chart for Kubernetes
+
+# A chart can be either an application or a "library" chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They are included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+appVersion: 1.16.0
+
+dependencies:
+- name: common
+  version: "0.1.0"
+  repository: "file://../common/"
+- name: mongodb
+  version: "0.1.0"
+  repository: "file://../mongodb/"
+- name: redis
+  version: "0.1.0"
+  repository: "file://../redis/"
+- name: spike-service
+  version: "0.1.0"
+  repository: "file://../spike-service/"
+- name: request-service
+  version: "0.1.0"
+  repository: "file://../request-service/"
+- name: kartoffel-service
+  version: "0.1.0"
+  repository: "file://../kartoffel-service/"
+- name: producer-service
+  version: "0.1.0"
+  repository: "file://../producer-service/"
+- name: notification-service
+  version: "0.1.0"
+  repository: "file://../notification-service/"
+- name: approver-service
+  version: "0.1.0"
+  repository: "file://../approver-service/"
+- name: tea-service
+  version: "0.1.0"
+  repository: "file://../tea-service/"
+- name: authentication-service
+  version: "0.1.0"
+  repository: "file://../authentication-service/"
+- name: api-gateway
+  version: "0.1.0"
+  repository: "file://../api-gateway/"

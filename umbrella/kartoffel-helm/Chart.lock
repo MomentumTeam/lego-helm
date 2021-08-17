@@ -1,0 +1,39 @@
+dependencies:
+- name: common
+  repository: file://../common/
+  version: 0.1.0
+- name: mongodb
+  repository: file://../mongodb/
+  version: 0.1.0
+- name: redis
+  repository: file://../redis/
+  version: 0.1.0
+- name: spike-service
+  repository: file://../spike-service/
+  version: 0.1.0
+- name: request-service
+  repository: file://../request-service/
+  version: 0.1.0
+- name: kartoffel-service
+  repository: file://../kartoffel-service/
+  version: 0.1.0
+- name: producer-service
+  repository: file://../producer-service/
+  version: 0.1.0
+- name: notification-service
+  repository: file://../notification-service/
+  version: 0.1.0
+- name: approver-service
+  repository: file://../approver-service/
+  version: 0.1.0
+- name: tea-service
+  repository: file://../tea-service/
+  version: 0.1.0
+- name: authentication-service
+  repository: file://../authentication-service/
+  version: 0.1.0
+- name: api-gateway
+  repository: file://../api-gateway/
+  version: 0.1.0
+digest: sha256:11c7fb1a886577267f2d0fbda375a15ca2519a3539dd4f08716faa16d73f472b
+generated: "2021-08-17T09:58:31.087806151+03:00"

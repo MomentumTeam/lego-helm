@@ -1,0 +1,27 @@
+ 
+ 
+global:
+  imagePullSecret:  [ name: regecred ] 
+ 
+  resources:
+    limits:
+      cpu: 200m
+      memory: 400Mi
+    requests:
+      cpu: 300m
+      memory: 500Mi 
+ 
+  ingress:
+    enabled: true
+    annotations:
+      
+    tls: []
+    hosts:
+      - host: example.com
+        paths:
+        - path: /
+          service: ui
+          port: 80
+        - path: /api
+          service: api-gateway
+          port: 3000
