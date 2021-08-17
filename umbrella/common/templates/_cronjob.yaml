@@ -1,0 +1,67 @@
+{{- define "common.cronjob" -}}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "common.name" . }}
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+spec:
+  schedule: "{{ .Values.cronjob.schedule }}"
+  {{- with .Values.cronjob.concurrencyPolicy }}
+  concurrencyPolicy: {{ . }}
+  {{- end }}
+  {{- with .Values.cronjob.failedJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ . }}
+  {{- end }}
+  {{- with .Values.cronjob.successfulJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ . }}
+  {{- end }}
+  {{- with .Values.cronjob.suspend }}
+  suspend: {{ . }}
+  {{- end }}
+  jobTemplate:
+    spec:
+      {{- with .Values.cronjob.activeDeadlineSeconds }}
+      activeDeadlineSeconds: {{ . }}
+      {{- end }}
+      template:
+        metadata:
+          labels:
+              {{- include "common.labels" . | nindent 12 }}
+          {{- if .Values.podAnnotations }}
+          annotations:
+            {{ toYaml .Values.podAnnotations | indent 12 }}
+          {{- end }}
+        spec:
+          {{- if .Values.imagePullSecrets }}
+          imagePullSecrets:
+            - name: {{ .Values.imagePullSecrets }}
+          {{- end }}
+          restartPolicy: {{ .Values.cronjob.jobRestartPolicy }}
+          serviceAccountName: {{ include "common.serviceAccountName" . }}
+          containers:
+          - name: {{ include "common.fullname" . }}
+            image: "{{ .Values.image.repository }}{{ .Values.jobName | default (include "common.fullname" .) }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
+            env:
+              {{- range $key, $value := $.Values.env }}
+              - name: {{ $key }}
+                value: {{ $value | quote }}
+              {{- end }}
+            resources:
+{{ toYaml .Values.resources | indent 16 }}
+    {{- with .Values.nodeSelector }}
+          nodeSelector:
+{{ toYaml . | indent 12 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+          affinity:
+{{ toYaml . | indent 12 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+          tolerations:
+{{ toYaml . | indent 12 }}:
+{{- end }}
+
+
+
