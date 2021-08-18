@@ -1,5 +1,5 @@
 global:
-  imagePullSecret: [name: regecred]
+  imagePullSecret: [name: lego]
 
   resources:
     limits:

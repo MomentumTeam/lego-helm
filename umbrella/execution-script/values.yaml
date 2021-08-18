@@ -2,7 +2,7 @@ nameOverride: execution-script
 fullnameOverride: execution-script
 
 images:
-  repository: execution-script
+  repository: momentumacr.azurecr.io/execution-script
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
