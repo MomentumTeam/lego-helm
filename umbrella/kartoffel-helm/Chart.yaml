@@ -27,12 +27,6 @@ dependencies:
 - name: common
   version: "0.1.0"
   repository: "file://../common/"
-- name: mongodb
-  version: "0.1.0"
-  repository: "file://../mongodb/"
-- name: redis
-  version: "0.1.0"
-  repository: "file://../redis/"
 - name: spike-service
   version: "0.1.0"
   repository: "file://../spike-service/"
@@ -60,3 +54,6 @@ dependencies:
 - name: api-gateway
   version: "0.1.0"
   repository: "file://../api-gateway/"
+# - name: execution-script
+#   version: "0.1.0"
+#   repository: "file://../execution-script/"

@@ -7,8 +7,6 @@ images:
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
-replicaCount: 2
-
 configmaps:
   - name: supernova
   - name: execution-script
@@ -30,10 +28,6 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: execution-script
-
-service:
-  type: ClusterIP
-  port: 3000
 
 podAnnotations: {}
 
