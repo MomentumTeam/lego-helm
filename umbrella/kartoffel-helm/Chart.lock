@@ -2,6 +2,12 @@ dependencies:
 - name: common
   repository: file://../common/
   version: 0.1.0
+- name: mongodb
+  repository: file://../mongodb/
+  version: 0.1.0
+- name: redis
+  repository: file://../redis/
+  version: 0.1.0
 - name: spike-service
   repository: file://../spike-service/
   version: 0.1.0
@@ -29,5 +35,5 @@ dependencies:
 - name: api-gateway
   repository: file://../api-gateway/
   version: 0.1.0
-digest: sha256:6872325c5ba2c8b5dc643cc28a40cb369174961e571d7489fd8bf6976313ac18
-generated: "2021-08-18T11:47:43.096672+03:00"
+digest: sha256:11c7fb1a886577267f2d0fbda375a15ca2519a3539dd4f08716faa16d73f472b
+generated: "2021-08-18T13:34:33.350507+03:00"

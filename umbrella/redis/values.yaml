@@ -2,7 +2,7 @@ nameOverride: redis
 fullnameOverride: redis
 
 images:
-  repository: momentumacr.azurecr.io/redis
+  repository: redis
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: alpine
@@ -22,7 +22,7 @@ serviceAccount:
 
 service:
   type: ClusterIP
-  port: null
+  port: 6379
 
 podAnnotations: {}
 

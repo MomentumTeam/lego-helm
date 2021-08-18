@@ -9,7 +9,6 @@ images:
 
 configmaps:
   - name: supernova
-  - name: execution-script
 
 cronjob:
   schedule: "* */1 * * *"

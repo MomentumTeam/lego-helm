@@ -2,7 +2,7 @@ nameOverride: mongodb
 fullnameOverride: mongodb
 
 images:
-  repository: momentumacr.azurecr.io/mongo
+  repository: mongo
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
@@ -22,7 +22,7 @@ serviceAccount:
 
 service:
   type: ClusterIP
-  port: null
+  port: 27017
 
 podAnnotations: {}
 
