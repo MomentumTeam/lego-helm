@@ -17,8 +17,11 @@ global:
       - host: example.com
         paths:
           - path: /
-            service: ui
+            service: supernova-ui
             port: 80
           - path: /api
             service: api-gateway
+            port: 8080
+          - path: /auth
+            service: authentication-service
             port: 8080

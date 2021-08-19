@@ -35,5 +35,8 @@ dependencies:
 - name: api-gateway
   repository: file://../api-gateway/
   version: 0.1.0
-digest: sha256:11c7fb1a886577267f2d0fbda375a15ca2519a3539dd4f08716faa16d73f472b
-generated: "2021-08-18T13:34:33.350507+03:00"
+- name: supernova-ui
+  repository: file://../supernova-ui/
+  version: 0.1.0
+digest: sha256:4b72da1d289472a2ab234ca1cbbc6d1e0667d5aa8dcfd63437202f282ae65a93
+generated: "2021-08-19T10:02:38.154370045+03:00"
