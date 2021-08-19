@@ -1,16 +1,23 @@
-nameOverride: producer-service
-fullnameOverride: producer-service
+nameOverride: execution-script
+fullnameOverride: execution-script
 
 images:
-  repository: momentumacr.azurecr.io/producer-service
+  repository: momentumacr.azurecr.io/execution-script
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
-replicaCount: 2
-
 configmaps:
   - name: supernova
+
+cronjob:
+  schedule: "* */1 * * *"
+  concurrencyPolicy: "Forbid"
+  failedJobsHistoryLimit: 0
+  successfulJobsHistoryLimit: 0
+  jobRestartPolicy: "Never"
+  activeDeadlineSeconds: 86400
+  suspend: "false"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -19,11 +26,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: producer-service
-
-service:
-  type: ClusterIP
-  port: 8080
+  name: execution-script
 
 podAnnotations: {}
 

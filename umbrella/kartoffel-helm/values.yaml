@@ -1,27 +1,24 @@
- 
- 
 global:
-  imagePullSecret:  [ name: regecred ] 
- 
+  imagePullSecret: [name: lego]
+
   resources:
     limits:
       cpu: 200m
       memory: 400Mi
     requests:
       cpu: 300m
-      memory: 500Mi 
- 
+      memory: 500Mi
+
   ingress:
     enabled: true
-    annotations:
-      
+    annotations: {}
     tls: []
     hosts:
       - host: example.com
         paths:
-        - path: /
-          service: ui
-          port: 80
-        - path: /api
-          service: api-gateway
-          port: 3000
+          - path: /
+            service: ui
+            port: 80
+          - path: /api
+            service: api-gateway
+            port: 8080

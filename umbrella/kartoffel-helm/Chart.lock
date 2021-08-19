@@ -36,4 +36,4 @@ dependencies:
   repository: file://../api-gateway/
   version: 0.1.0
 digest: sha256:11c7fb1a886577267f2d0fbda375a15ca2519a3539dd4f08716faa16d73f472b
-generated: "2021-08-17T09:58:31.087806151+03:00"
+generated: "2021-08-18T13:34:33.350507+03:00"

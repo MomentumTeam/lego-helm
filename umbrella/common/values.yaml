@@ -14,6 +14,15 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+cronjob:
+  schedule: "* * 31 2 *"
+  concurrencyPolicy: "Forbid"
+  failedJobsHistoryLimit: 0
+  successfulJobsHistoryLimit: 0
+  jobRestartPolicy: "Never"
+  activeDeadlineSeconds: 86400
+  suspend: "false"
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -25,10 +34,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -38,11 +49,12 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: false
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -53,7 +65,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
