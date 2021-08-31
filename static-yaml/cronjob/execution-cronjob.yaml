@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: execution-script
+spec:
+  schedule: "0 */1 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: execution-script
+            image: momentumacr.azurecr.io/execution-script:latest
+            imagePullPolicy: IfNotPresent
+            command:
+            - node 
+            - src/index.js
+          restartPolicy: OnFailure
+          imagePullSecrets:
+            - name: lego
